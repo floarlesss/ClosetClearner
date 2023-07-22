@@ -67,8 +67,6 @@ async def announceNewUpload():
             
             
         except Exception as e:
-            await asyncio.sleep(1)
-
             if error == False:
                 print(f"Exception occured on announceNewUpload(). Error:\n{e}\n\nWaiting until midnight before continuing")
                 channel = await bot.fetch_channel(1132373526087729333)
@@ -76,14 +74,10 @@ async def announceNewUpload():
 
                 error = True
             else:
-                await asyncio.sleep(1)
+                await asyncio.sleep(86400)
 
-                timeNow = datetime.datetime.now()
-                hour = timeNow.hour
-
-                if hour == 0:
-                    await channel.send("----------------\nGood Morning!\n A day has cleared. Resuming YouTube upload notifications.")
-                    error = False
+                await channel.send("----------------\nGood Morning!\n A day has cleared. Resuming YouTube upload notifications.")
+                error = False
 
 
 @slash_command(
