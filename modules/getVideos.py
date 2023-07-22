@@ -3,8 +3,9 @@ import html
 import os
 from dotenv import dotenv_values
 
-cwd = os.getcwd()
-API_Key = dotenv_values(f"{cwd}\\.env")['GOOGLE_TOKEN']
+cwd_raw = os.getcwd()
+cwd = cwd_raw.replace("/modules", "")
+API_Key = dotenv_values(f"{cwd}/.env")['GOOGLE_TOKEN']
 
 def getLatestVideo(Channel_ID):
     Max_Results = 1
