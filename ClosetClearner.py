@@ -83,7 +83,6 @@ async def announceNewUpload():
 @slash_command(
         name="rule",
         description="Repeat a rule listed in the rules channel.",
-        scopes=[1130174594683244717]
         )
 
 @slash_option(
